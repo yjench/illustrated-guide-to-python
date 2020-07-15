@@ -29,23 +29,22 @@ scores_to_transfer = {page: 0 for page in pages}
 # Run PageRank iteration
 for i in range(num_iters):
     # Logging
-    if i % 2 == 0:
+    if not i % 2:
         print(f'Iter {i}:')
         for page, score in scores.items():
-            print(f'    {page}: {score:.3f}')
-            
+            print(f'    {page} -> {score:.3f}')
     
     # Compute scores to transfer
     for page, score in scores.items():
-        num_links = len(corpus[page])        
-        scores_to_transfer[page] = (damping * score / num_links
-                                    if num_links != 0 else 0)
+        num_targets = len(corpus[page])        
+        scores_to_transfer[page] = (damping * score / num_targets
+                                    if num_targets != 0 else 0)
     
     # Update scores
-    for page, links in corpus.items():
-        for link in links:
+    for page, targets in corpus.items():
+        for target in targets:
             scores[page] -= scores_to_transfer[page]
-            scores[link] += scores_to_transfer[page]
+            scores[target] += scores_to_transfer[page]
 
 # Print final scores
 print('-'*20)
