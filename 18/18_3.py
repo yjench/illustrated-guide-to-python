@@ -8,7 +8,6 @@ def is_palindrome(s):
 # Method 2: while loop
 def is_palindrome_iter(s):
     s = s.lower()
-    
     is_pal = True
     while s:
         if s[0] != s[-1]:
