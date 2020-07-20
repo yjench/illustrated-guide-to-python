@@ -1,4 +1,4 @@
-# Refractor the code such that there is a function that reads csv data from 
+# Refactor the function such that there is a function that reads csv data from 
 # any sensible iterable, which is then called by a function with file as
 # iterable.
 
@@ -10,7 +10,7 @@ def csv_to_data(iterable):
     result = []
     header = None
     for item in iterable:
-        data = [val.strip() for val in item.split(',')]
+        data = list(map(str.strip, item.split(',')))
         
         if header is None:
             header = data

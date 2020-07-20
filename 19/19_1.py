@@ -1,4 +1,4 @@
-# Refractor the code such that there is a function that writes csv data to 
+# Refactor the function such that there is a function that writes csv data to 
 # any sensible iterable, which is then called by a function with file as
 # iterable.
 
