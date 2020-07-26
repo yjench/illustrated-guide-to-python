@@ -1,2 +1,2 @@
-print('\u1FB8')
-print('\N{GREEK CAPITAL LETTER ALPHA WITH VRACHY}')
+print('\U0001F604')
+print('\N{grinning face with smiling eyes}')

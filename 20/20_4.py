@@ -1,20 +1,15 @@
 def convert_quotes(s_ascii):
     count = 0
-    s = ""
+    letters = []
     for c in s_ascii:
         if c == '"':
-            if count % 2:
-                c = '\N{LEFT DOUBLE QUOTATION MARK}'
-                print('left')
-            else:
-                c = '\N{RIGHT DOUBLE QUOTATION MARK}'
-                print('right')
-            
+            c = ('\N{LEFT DOUBLE QUOTATION MARK}' if not count % 2 else
+                 '\N{RIGHT DOUBLE QUOTATION MARK}')
             count += 1
             
-        s += c
-    
-    return s
+        letters.append(c)
 
-print('Python comes with "Batteries included".')
-print(convert_quotes('Python comes with "Batteries included".'))
+    return ''.join(letters)
+
+s_ascii = 'Python comes with "Batteries included" - "AAA batteries".'
+print(convert_quotes(s_ascii))
