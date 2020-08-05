@@ -1,7 +1,6 @@
 names = ['Tommy', 'Fredrich', 'Jan', 'Donald']
 target = 'John'
 
-
 # Method 1: for loop
 for name in names:
     if name == target:
