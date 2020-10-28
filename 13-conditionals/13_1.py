@@ -1,12 +1,8 @@
-for y in [1800, 1900, 1903, 2000, 2002]:
-    ans = []    
-    
-    # Method 0: Benchmark solution
-    from calendar import isleap
-    leap = isleap(y)
-    ans.append(leap)
-    
-    # Method 1: Flatten conditionals by exploiting order of conditionals
+# Method 0: Benchmark solution
+from calendar import isleap
+
+# Method 1: Flattened conditionals
+def isleap_1(y):
     if y % 400 == 0:
         leap = True
     elif y % 100 == 0:
@@ -15,20 +11,23 @@ for y in [1800, 1900, 1903, 2000, 2002]:
         leap = True
     else:
         leap = False
-    ans.append(leap)
-    
-    # Method 2: Flatten conditionals by proper initialization & compound booleans
+    return leap
+        
+# Method 2: Conditionals with proper initialization and boolean operations
+def isleap_2(y):
     leap = False
     if y % 400 == 0:
         leap = True
     elif y % 4 == 0 and y % 100 != 0:
         leap = True
-    ans.append(leap)
-    
-    # Method 3: One liner using conditional expression and short circuit
-    leap = y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)
-    ans.append(leap)
-    
-    # Tests
-    assert all([ans[i] == ans[0] for i in range(1, 4)])
+    return leap
+        
+# Method 3: One liner using compound booleans and short circuit
+def isleap_3(y):
+    return y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)
+
+
+for y in [1800, 1900, 1903, 2000, 2002]:
+    ans = [isleap(y), isleap_1(y), isleap_2(y), isleap_3(y)]
+    assert all([ans[i] is ans[0] for i in range(1, 4)])
     print(f'{y} is leap year? {ans[0]}')
