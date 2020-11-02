@@ -51,14 +51,16 @@ what he touches. One might think the atmosphere was made transparent with this
 
 import string
 
+# Strip punctuation from strings
 table = str.maketrans({key: None for key in string.punctuation})
-
 shakespeare = shakespeare.translate(table)
-shake_set = set(shakespeare.lower().split())
-
 emerson = emerson.translate(table)
+
+# Transform strings to sets of lower-case words
+shake_set = set(shakespeare.lower().split())
 emer_set = set(emerson.lower().split())
 
+# Check common and unique words
 common_words = shake_set & emer_set
 print(f'Common words:\n {common_words}\n')
 
