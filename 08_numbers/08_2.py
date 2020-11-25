@@ -1,5 +1,5 @@
 def check_divisible(num1, num2):
-    assert num2 != 0, 'denominator must not be zero'
+    assert num2, 'denominator must be non-zero'
     
     remainder = num1 % num2
 
