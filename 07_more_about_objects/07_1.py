@@ -1,6 +1,6 @@
 def check_object(obj):
-    print('Object contents')
-    print('---------------')
+    print('Object properties')
+    print('-----------------')
     print('ID:', id(obj))
     print('Type:', type(obj))
     print('Value:', obj, '\n')
