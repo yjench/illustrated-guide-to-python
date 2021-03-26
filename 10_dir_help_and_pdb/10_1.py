@@ -1,7 +1,7 @@
 name = 'Fred'
 
 print(dir(name))
-print('*' * 60)
-print(help(name.find))
-print('*' * 60)
-print(help(name.title))
+print('\n')
+help(name.find)
+print('\n')
+help(name.title)
